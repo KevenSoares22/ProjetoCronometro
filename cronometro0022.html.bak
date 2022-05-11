@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+
+
+<html lang="pt-br">
+
+
+
+<head>
+
+<title>CSS Grid</title>
+<meta charset="UTF-8">
+</head>
+
+
+
+
+<style>
+
+
+body{
+background-color: black;
+color: white;
+
+}
+
+.box{
+font-size: 20pt;
+
+
+
+
+}
+
+.box1{
+  font-size: 60px;
+grid-column: 1/4;
+grid-row: 1/2;
+height: 16vmin;
+}
+
+.box2{
+color: white;
+
+border: 0.6vmax solid;
+border-color: rgba(248,186,86,1);
+font-size: 100px;
+grid-column: 2/3;
+grid-row: 2/4;
+height: 60vmin;
+border-radius: 50%;
+}
+
+.tela{
+font-size: 20vh;
+
+font-weight: bold;
+}
+
+
+
+.box3{
+
+grid-column: 1/4;
+
+grid-row: 4/5;
+}
+
+.container{
+
+display: grid;
+
+grid-template-columns: 1fr 1fr 1fr;
+
+text-align: center;
+
+
+
+}
+
+.botao{
+
+border-radius: 100%;
+height: 14vmin;
+width: 14vmin;
+border: 0 none;
+margin: 10px;
+
+font-size: 2vh;
+
+font-weight: bold;
+
+
+}
+
+.botao1{
+background-color: rgba(20,45,23,1);
+color: rgba(1,1,1,1);
+
+}
+.botao2{
+
+background-color: rgba(48,36,16,1);
+color: rgba(210,152,80,1);
+}
+.botao3{
+background-color: rgba(36,36,36,1);
+color: rgba(90,90,90,1);
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+<body>
+<div class="container">
+<div class="box box1">Cronometro</div>
+
+<div class="box box2"><h2 class="tela">00:00</h1></div>
+
+
+<div class="box box3">
+
+<button class="botao botao1" onclick="In()">Iniciar</button>
+
+<button class="botao botao2" onclick="Pa()">Pausar</button>
+
+<button class="botao botao3" onclick="Re()">Reiniciar</button>
+
+</div>
+
+</div>
+
+
+
+
+<script>
+
+let mse=0
+let sec=0
+let min=0
+let hora=0
+
+
+
+
+function In(){
+setInterval(tela, 100)
+
+
+}
+
+function Pa(){
+
+
+
+}
+
+function Re(){
+
+
+
+}
+
+function tela(){
+if(mse==9){
+sec++
+mse=00
+
+}
+
+else{
+mse++
+}
+
+if(sec==60){
+
+min++
+sec=00
+}
+
+if(min==60){
+
+hora++
+
+min=00
+
+}
+
+let telahora= document.querySelector('.tela')
+if(min<1 && hora<1){
+telahora.innerHTML= sec + ':' + mse
+
+
+}
+
+
+if(min>=1 && hora<1){
+telahora.innerText= min + ':' + sec + ':' + mse
+
+
+}
+if(hora>=1){
+telahora.innerText = hora + ':' + min + ':' + sec + ':' + mse
+}
+}
+
+
+</script>
+
+
+
+
+
+</body>
+
+</html>
